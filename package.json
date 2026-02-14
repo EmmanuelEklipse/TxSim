@@ -1,0 +1,55 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:all": "npm run test && npm run test:integration",
+    "test:coverage:all": "jest --coverage && jest --config jest.integration.config.js --coverage",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "npx tsx watch src/index.ts",
+    "docker:build": "docker build -t txsim .",
+    "docker:run": "docker run -p 3000:3000 -e FORK_URL=https://moonbeam-mainnet.g.alchemy.com/v2/vpEAMGP_rB7ZhU43ybQC6agpdVToaV5S txsim",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:dev:down": "docker-compose -f docker-compose.dev.yml down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.1.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@acala-network/chopsticks": "^1.2.5",
+    "@polkadot/api": "16.5.4",
+    "async-mutex": "^0.5.0",
+    "dotenv": "^17.2.4",
+    "ethers": "^6.16.0",
+    "express": "^5.2.1"
+  },
+  "overrides": {
+    "@polkadot/util": "14.0.1",
+    "@polkadot/keyring": "14.0.1",
+    "@polkadot/util-crypto": "14.0.1",
+    "@polkadot/types": "16.5.4",
+    "@polkadot/types-codec": "16.5.4",
+    "@polkadot/rpc-provider": "16.5.4"
+  }
+}

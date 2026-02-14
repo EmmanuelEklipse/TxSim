@@ -1,0 +1,36 @@
+# Dockerfile.dev
+
+FROM node:20-slim
+
+WORKDIR /app
+
+# Install Foundry (for Anvil - EVM) and Chopsticks (for WASM)
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl -L https://foundry.paradigm.xyz | bash
+ENV PATH="/root/.foundry/bin:${PATH}"
+RUN foundryup
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci
+
+# Install Chopsticks globally
+RUN npm install -g @acala-network/chopsticks
+
+# Copy source and configuration
+COPY src ./src
+COPY tsconfig.json ./
+COPY chopsticks-config.yml ./
+
+ENV PORT=3000
+ENV NODE_ENV=development
+ENV CHOPSTICKS_PORT=8546
+
+EXPOSE 3000
+
+# Use dev mode with hot reload
+CMD ["npm", "run", "dev"]
