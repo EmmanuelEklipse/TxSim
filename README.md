@@ -46,7 +46,7 @@ cp .env.example .env
 
 ## Quick Links
 
-- [GitHub Repo](https://github.com/sidelaw/TX-sim-dev)
+- [GitHub Repo](https://github.com/EmmanuelEklipse/TxSim/)
 - [MIT License](https://opensource.org/licenses/MIT)
 - [Documentation](docs/API.md)
 - [Tests](src/tests)
