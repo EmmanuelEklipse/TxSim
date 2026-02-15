@@ -5,19 +5,19 @@ version: '3.8'
 services:
   txsim-dev:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
+      context: ../
+      dockerfile: docker/Dockerfile.dev
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/app/src
-      - ./chopsticks-config.yml:/app/chopsticks-config.yml
+      - ../src:/app/src
+      - ../config/chopsticks-config.yml:/app/config/chopsticks-config.yml
       - /app/node_modules
     environment:
       - PORT=3000
       - NODE_ENV=development
       # EVM simulation (Anvil)
-      - FORK_URL_EVM=https://moonbeam-mainnet.g.alchemy.com/v2/vpEAMGP_rB7ZhU43ybQC6agpdVToaV5S
+      - FORK_URL_EVM=https://rpc.api.moonbeam.network
       # WASM simulation (Chopsticks)
       - FORK_URL_WASM=https://astar.api.onfinality.io/public
       - CHOPSTICKS_PORT=8546

@@ -65,7 +65,7 @@ function startChopsticks(): Promise<void> {
         console.log("Starting Chopsticks...");
 
         chopsticksProcess = spawn(
-            `PORT=${CHOPSTICKS_PORT} npx @acala-network/chopsticks --config ./chopsticks-config.yml`,
+            `PORT=${CHOPSTICKS_PORT} npx @acala-network/chopsticks --config ./config/chopsticks-config.yml`,
             [],
             {
                 stdio: "inherit",

@@ -24,7 +24,7 @@ RUN npm install -g @acala-network/chopsticks
 # Copy source and configuration
 COPY src ./src
 COPY tsconfig.json ./
-COPY chopsticks-config.yml ./
+COPY config/chopsticks-config.yml ./config/
 
 ENV PORT=3000
 ENV NODE_ENV=development

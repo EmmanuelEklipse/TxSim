@@ -2,6 +2,6 @@
 # Chopsticks configuration for Astar network
 
 # Use HTTPS endpoint instead of WebSocket to avoid message size limits
-endpoint: https://astar.api.onfinality.io/public
+endpoint: https://polkadot.api.onfinality.io/public
 port: 8546
 mock-signature-host: true

@@ -41,6 +41,18 @@ docker-compose logs -f
 # Install dependencies
 npm install
 
+# Setup environment variables
+cp .env.example .env
+
+## Quick Links
+
+- [GitHub Repo](https://github.com/sidelaw/TX-sim-dev)
+- [MIT License](https://opensource.org/licenses/MIT)
+- [Documentation](docs/API.md)
+- [Tests](src/tests)
+- [Dockerfile](docker/Dockerfile)
+- [Engine Code](src/index.ts)
+
 # Install Chopsticks globally
 npm install -g @acala-network/chopsticks
 

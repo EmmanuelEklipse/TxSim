@@ -1,0 +1,40 @@
+name: Backend CI
+
+on:
+    pull_request:
+        branches: [main]
+        paths:
+            - "backend/**"
+    push:
+        branches: [main]
+        paths:
+            - "backend/**"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        defaults:
+            run:
+                working-directory: backend
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "npm"
+                  cache-dependency-path: "backend/package-lock.json"
+
+            - name: Install Foundry
+              uses: foundry-rs/foundry-toolchain@v1
+              with:
+                  version: nightly
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run unit tests with coverage
+              run: npm run test:coverage
