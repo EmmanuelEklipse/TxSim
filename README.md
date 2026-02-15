@@ -1,4 +1,4 @@
-# TxSim - Multi-Chain Transaction Simulator
+# TxSim - Polkadot Transaction Simulator
 
 TxSim is a transaction simulation engine that previews how transactions will behave on both **EVM** and **WASM** chains before they're executed. It forks live chain state using Anvil (EVM) and Chopsticks (WASM) and executes transactions in isolated environments.
 
